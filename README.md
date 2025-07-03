@@ -4,6 +4,15 @@ A secure file-sharing platform built with FastAPI, supporting two user types: **
 
 ---
 
+## 🖼️ Swagger UI Preview
+
+Here’s what the API documentation looks like:
+![Screenshot (87)](https://github.com/user-attachments/assets/3d3c37a5-3cc8-4324-8ef8-ac32110cbe9c)
+![Screenshot (88)](https://github.com/user-attachments/assets/e9b7bbbf-40cc-43f9-8823-f75aae2d041b)
+![Screenshot (86)](https://github.com/user-attachments/assets/0642755f-0081-42b2-a3fb-ad9f146e961d)
+
+
+
 ## 🚀 Features
 
 - **User Registration & Login** (JWT Auth, hashed passwords)
