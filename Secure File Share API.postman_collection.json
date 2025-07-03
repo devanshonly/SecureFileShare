@@ -1,0 +1,171 @@
+{
+	"info": {
+		"_postman_id": "caeb4090-6c98-4cda-a275-9ca02f3360ae",
+		"name": "Secure File Share API",
+		"description": "Postman collection for Secure File Share FastAPI backend. Includes Ops and Client flows.\n\n**Instructions:**\n1. Register a user (Ops or Client).\n2. Check your FastAPI server console for the verification token.\n3. Verify the email.\n4. Log in to get a JWT token.\n5. Use the token for protected endpoints (click 'Authorization' tab, type 'Bearer <token>').\n6. For file upload, use a .pptx, .docx, or .xlsx file.\n7. For download, use the 'encrypted_url' from the file list.\n\nBase URL: http://localhost:8000\n",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "42786976"
+	},
+	"item": [
+		{
+			"name": "Ops Register",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\": \"ops@example.com\",\n  \"password\": \"password123\"\n}"
+				},
+				"url": "http://localhost:8000/ops/register"
+			},
+			"response": []
+		},
+		{
+			"name": "Ops Verify Email",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\": \"ops@example.com\",\n  \"token\": \"<token-from-console>\"\n}"
+				},
+				"url": "http://localhost:8000/ops/verify-email"
+			},
+			"response": []
+		},
+		{
+			"name": "Ops Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\": \"ops@example.com\",\n  \"password\": \"password123\"\n}"
+				},
+				"url": "http://localhost:8000/ops/login"
+			},
+			"response": []
+		},
+		{
+			"name": "Ops Upload File",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer <access_token>"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"value": "",
+							"type": "file"
+						}
+					]
+				},
+				"url": "http://localhost:8000/ops/upload"
+			},
+			"response": []
+		},
+		{
+			"name": "Client Register",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\": \"client@example.com\",\n  \"password\": \"password123\"\n}"
+				},
+				"url": "http://localhost:8000/client/register"
+			},
+			"response": []
+		},
+		{
+			"name": "Client Verify Email",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\": \"client@example.com\",\n  \"token\": \"<token-from-console>\"\n}"
+				},
+				"url": "http://localhost:8000/client/verify-email"
+			},
+			"response": []
+		},
+		{
+			"name": "Client Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\": \"client@example.com\",\n  \"password\": \"password123\"\n}"
+				},
+				"url": "http://localhost:8000/client/login"
+			},
+			"response": []
+		},
+		{
+			"name": "Client List Files",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer <access_token>"
+					}
+				],
+				"url": "http://localhost:8000/client/files"
+			},
+			"response": []
+		},
+		{
+			"name": "Client Download File",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer <access_token>"
+					}
+				],
+				"url": "http://localhost:8000/client/download/<encrypted_url>"
+			},
+			"response": []
+		}
+	]
+}
